@@ -102,7 +102,8 @@ gaia-modal {
     styleHack();
 
     return new MainController({
-      manifestURL: manifestURL
+      manifestURL: manifestURL,
+      lazyLoadModules: true
     });
   }
 }
