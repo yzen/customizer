@@ -203,6 +203,16 @@ export default class MainView extends View {
       });
     });
 
+    this.on('action:save', 'fxos-customizer', (evt) => {
+      this.controller.achievementsService.reward({
+        criteria: 'achievements/add-on-all-star',
+        evidence: 'urn:customizer:add-on:save',
+        name: 'Add-on All-Star',
+        description: 'Use Customizer to create your own add-on',
+        image: 'images/add-on-all-star.png'
+      });
+    });
+
     this.on('action:viewSource', 'fxos-customizer', (evt) => {
       this.controller.viewSourceController.open(evt.detail);
     });

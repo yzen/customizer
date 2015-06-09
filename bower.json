@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "fxos-mvc": "fxos/mvc",
+    "fxos-achievements-service": "fxos/achievements-service",
     "gaia-dom-tree": "gaia-components/gaia-dom-tree",
     "gaia-dialog": "gaia-components/gaia-dialog",
     "gaia-modal": "gaia-components/gaia-modal",

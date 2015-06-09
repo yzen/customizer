@@ -11,6 +11,8 @@
 /*global AppendChildController*/
 /*global CopyMoveController*/
 
+/*global AchievementsService*/
+
 /*global Controller*/
 /*global Gesture*/
 
@@ -20,6 +22,8 @@ export default class MainController extends Controller {
 
     this._checkOpenFromLauncher();
     this._waitToBeOpened();
+
+    this.achievementsService = new AchievementsService();
 
     window.addEventListener('visibilitychange', () => {
       if (!document.hidden) {
@@ -115,7 +119,15 @@ export default class MainController extends Controller {
   // directly, you'll end up with more than one gesture detector listening
   // at a time.
   _waitToBeOpened() {
-    Gesture.detect(this.openGesture).then(() => this.open());
+    Gesture.detect(this.openGesture)
+      .then(() => this.open())
+      .then(() => this.achievementsService.reward({
+        criteria: 'achievements/super-swiper',
+        evidence: 'urn:customizer:open-gesture:open',
+        name: 'Super Swiper',
+        description: 'Swipe up with two fingers to open Customizer',
+        image: 'images/super-swiper.png'
+      }));
   }
 
   _waitToBeClosed() {
@@ -150,7 +162,7 @@ export default class MainController extends Controller {
 
     this._isOpen = true;
 
-    this._lazyLoadModules()
+    return this._lazyLoadModules()
       .then(() => this.view.open())
       .then(() => {
         this.view.customizer.setRootNode(document.documentElement);

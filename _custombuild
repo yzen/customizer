@@ -89,6 +89,7 @@ var addon = gulp.src([
   APP_ROOT + 'components/observe-shim/lib/observe-shim.js',
   APP_ROOT + 'components/observe-utils/lib/observe-utils.js',
   APP_ROOT + 'components/fxos-mvc/mvc.js',
+  APP_ROOT + 'components/fxos-achievements-service/achievements-service.js',
   APP_ROOT + 'components/gesture/gesture.js',
   APP_ROOT + 'components/js-beautify/js/lib/beautify.js',
   APP_ROOT + 'components/js-beautify/js/lib/beautify-css.js',

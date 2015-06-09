@@ -14,7 +14,13 @@
     "device-storage:sdcard": { "access": "readwrite" },
     "webapps-manage": {},
     "themeable":{},
-    "settings":{ "access": "readonly" }
+    "settings":{
+      "description": "For saving achievements",
+      "access": "readwrite"
+    },
+    "desktop-notification": {
+      "description": "For sending achievements notifications to Gaia::System"
+    }
   },
   "package_path": "customizer.zip"
 }
